@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-unfetch'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { fadeInUp, staggerChildren } from '../motion'
+import { fadeInUp, staggerChildren } from '../../motion'
 
 const Product = (props) => (
   <motion.div exit={{ opacity: 0 }} initial='initial' animate='animate'>
