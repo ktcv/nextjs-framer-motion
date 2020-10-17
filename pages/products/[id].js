@@ -7,7 +7,13 @@ const Product = (props) => (
     <div className='fullscreen'>
       <div className='product'>
         <div className='img'>
-          <img key={props.product.image} src={props.product.image} />
+          <motion.img
+            initial={{ x: 200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            key={props.product.image}
+            src={props.product.image}
+          />
         </div>
         <div className='product-details'>
           <div className='inner'>

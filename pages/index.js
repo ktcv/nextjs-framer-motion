@@ -1,32 +1,7 @@
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
 import { motion } from 'framer-motion'
-
-// Motion variants
-const easing = [0.6, -0.5, 0.01, 0.99]
-
-const fadeInUp = {
-  initial: {
-    y: 60,
-    opacity: 0,
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.6,
-      ease: easing,
-    },
-  },
-}
-
-const staggerChildren = {
-  animate: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-}
+import { staggerChildren, fadeInUp } from './motion'
 
 const Index = (props) => (
   <motion.div exit={{ opacity: 0 }} initial='initial' animate='animate'>
