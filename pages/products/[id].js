@@ -1,8 +1,9 @@
-import fetch from "isomorphic-unfetch";
-import Link from "next/link";
+import fetch from 'isomorphic-unfetch'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
 
-const Product = props => (
-  <div>
+const Product = (props) => (
+  <motion.div exit={{ opacity: 0 }}>
     <div className='fullscreen'>
       <div className='product'>
         <div className='img'>
@@ -40,16 +41,16 @@ const Product = props => (
         </div>
       </div>
     </div>
-  </div>
-);
+  </motion.div>
+)
 
-Product.getInitialProps = async function(context) {
-  const { id } = context.query;
+Product.getInitialProps = async function (context) {
+  const { id } = context.query
   const res = await fetch(
-    `http://my-json-server.typicode.com/wrongakram/demo/products/${id}`
-  );
-  const product = await res.json();
-  return { product };
-};
+    `http://my-json-server.typicode.com/ktcv/nextjs-framer-motion/products/${id}`
+  )
+  const product = await res.json()
+  return { product }
+}
 
-export default Product;
+export default Product
