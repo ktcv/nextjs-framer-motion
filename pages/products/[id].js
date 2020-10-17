@@ -1,12 +1,18 @@
 import fetch from 'isomorphic-unfetch'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { fadeInUp, staggerChildren } from '../motion'
 
 const Product = (props) => (
-  <motion.div exit={{ opacity: 0 }}>
+  <motion.div exit={{ opacity: 0 }} initial='initial' animate='animate'>
     <div className='fullscreen'>
       <div className='product'>
-        <div className='img'>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.75 }}
+          className='img'
+        >
           <motion.img
             initial={{ x: 200, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -14,36 +20,38 @@ const Product = (props) => (
             key={props.product.image}
             src={props.product.image}
           />
-        </div>
+        </motion.div>
         <div className='product-details'>
-          <div className='inner'>
+          <motion.div variants={staggerChildren(0.05)} className='inner'>
             <Link href='/'>
-              <div>
+              <motion.div variants={fadeInUp}>
                 <a className='go-back'>Back to products</a>
-              </div>
+              </motion.div>
             </Link>
             <div>
-              <span className='category'>Protein</span>
+              <motion.div variants={fadeInUp} className='category'>
+                Protein
+              </motion.div>
             </div>
-            <h1>{props.product.name}</h1>
-            <p>{props.product.details}</p>
-            <div className='additonals'>
+            <motion.h1 variants={fadeInUp}>{props.product.name}</motion.h1>
+            <motion.p variants={fadeInUp}>{props.product.details}</motion.p>
+            <motion.div variants={fadeInUp} className='additonals'>
               <span>Soy Free</span>
               <span>Gluten Free</span>
-            </div>
-            <div className='qty-price'>
+            </motion.div>
+            <motion.div variants={fadeInUp} className='qty-price'>
               <div className='qty'>
                 <div className='minus'>-</div>
                 <div className='amount'>1</div>
                 <div className='add'>+</div>
               </div>
               <span className='price'>{props.product.price}</span>
-            </div>
-            <div className='btn-row'>
+            </motion.div>
+            <motion.div variants={fadeInUp} className='btn-row'>
               <button className='add-to-cart'> Add to cart</button>
               <button className='subscribe'> Subscribe</button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </div>

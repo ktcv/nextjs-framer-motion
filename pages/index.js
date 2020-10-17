@@ -9,14 +9,19 @@ const Index = (props) => (
       <div className='title'>
         <h1>Select a protein</h1>
       </div>
-      <motion.div variants={staggerChildren} className='product-row'>
+      <motion.div variants={staggerChildren(0.2)} className='product-row'>
         {props.products.map((product) => (
           <Link
             key={product.id}
             href='/products/[id]'
             as={`/products/${product.id}`}
           >
-            <motion.div variants={fadeInUp} className='card'>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              variants={fadeInUp}
+              className='card'
+            >
               <span className='category'>Protein</span>
               <motion.img
                 initial={{ x: 60, opacity: 0 }}

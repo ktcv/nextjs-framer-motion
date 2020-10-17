@@ -15,10 +15,12 @@ export const fadeInUp = {
   },
 }
 
-export const staggerChildren = {
-  animate: {
-    transition: {
-      staggerChildren: 0.15,
+export const staggerChildren = (time) => {
+  return {
+    animate: {
+      transition: {
+        staggerChildren: time,
+      },
     },
-  },
+  }
 }
